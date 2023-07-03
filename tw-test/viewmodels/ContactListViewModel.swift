@@ -7,4 +7,15 @@
 
 import Foundation
 
-class ContactListViewModel {}
+class ContactListViewModel {
+    
+    var data: [Contact] = []
+    var filteredData: [Contact] = []
+    var keyword: String = ""
+    var selectionHandler: ((Contact) -> Void)?
+    
+    init() {
+        data = []
+        filteredData = []
+    }
+}

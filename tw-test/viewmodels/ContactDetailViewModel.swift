@@ -7,4 +7,11 @@
 
 import Foundation
 
-class ContactDetailViewModel {}
+class ContactDetailViewModel {
+    
+    var data: Contact?
+    
+    init(data: Contact? = nil) {
+        self.data = data
+    }
+}

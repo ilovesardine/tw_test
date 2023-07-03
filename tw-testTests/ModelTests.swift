@@ -9,6 +9,7 @@ import XCTest
 @testable import tw_test
 
 final class ModelTests: XCTestCase {
+    
     func testContactModelCanCreateInstance() {
         let instance = Contact(id: "5c8a80f52dfee238898d64cf", firstName: "Phoebe", lastName: "Monroe", email: "phoebemonroe@furnafix.com", dob: "3/2/1982");
         XCTAssertNotNil(instance)

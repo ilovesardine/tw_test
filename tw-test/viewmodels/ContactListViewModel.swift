@@ -77,7 +77,7 @@ class ContactListViewModel {
     }
     
     func addContact(_ contact: Contact) {
-        self.data.append(contact)
+        self.data.insert(contact, at: 0)
         self.filteredData = data
         self.updateDataSource()
     }

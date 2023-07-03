@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ContactListCollectionDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+class ContactListCollectionDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     
     var data: [Contact]
     var searchKeyword: String
@@ -37,5 +37,11 @@ class ContactListCollectionDataSource: NSObject, UICollectionViewDataSource, UIC
         cell.populate(with: data)
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        collectionView.deselectItem(at: indexPath, animated: true)
+        
+        self.selectionHandler?(self.data[indexPath.item])
     }
 }

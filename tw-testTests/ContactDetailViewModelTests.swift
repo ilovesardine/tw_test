@@ -25,7 +25,10 @@ final class ContactDetailViewModelTests: XCTestCase {
     // MARK: method tests
     
     func testSaveContact() {
-        let newContact = sut.saveContact()
+        let newContact = sut.saveContact(firstName: "Edward", lastName: "Kennedy", email: nil, dob: nil)
+        
         XCTAssertEqual(newContact?.id, "12")
+        XCTAssertEqual(newContact?.lastName, "Kennedy")
+        XCTAssertEqual(newContact?.dob, "2/3/1963")
     }
 }

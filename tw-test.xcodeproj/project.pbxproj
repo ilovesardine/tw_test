@@ -35,6 +35,14 @@
 		43D5F8CD2A52A60000014D99 /* ContactListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */; };
 		43D5F8D02A52ABE400014D99 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CF2A52ABE400014D99 /* AvatarView.swift */; };
 		43D5F8D12A52ABE400014D99 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CF2A52ABE400014D99 /* AvatarView.swift */; };
+		43D5F8D32A52ADFE00014D99 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D22A52ADFE00014D99 /* SectionTitleView.swift */; };
+		43D5F8D42A52ADFE00014D99 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D22A52ADFE00014D99 /* SectionTitleView.swift */; };
+		43D5F8D62A52AEC200014D99 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D52A52AEC200014D99 /* TextInputView.swift */; };
+		43D5F8D72A52AEC200014D99 /* TextInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D52A52AEC200014D99 /* TextInputView.swift */; };
+		43D5F8D92A52B1CB00014D99 /* DateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D82A52B1CB00014D99 /* DateInputView.swift */; };
+		43D5F8DA2A52B1CB00014D99 /* DateInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8D82A52B1CB00014D99 /* DateInputView.swift */; };
+		43D5F8DD2A52B26700014D99 /* DateStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8DC2A52B26700014D99 /* DateStringHelper.swift */; };
+		43D5F8DE2A52B26700014D99 /* DateStringHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8DC2A52B26700014D99 /* DateStringHelper.swift */; };
 		6C3A93EDE869E11AC221E811 /* Pods_tw_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F27D49FCF512B06B48CB760 /* Pods_tw_test.framework */; };
 		CF910ED2A23417F42E732E44 /* Pods_tw_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DAA0ED7DA3F2EB710DCF07 /* Pods_tw_testTests.framework */; };
 /* End PBXBuildFile section */
@@ -71,6 +79,10 @@
 		43D5F8C72A52A5C800014D99 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListItemCell.swift; sourceTree = "<group>"; };
 		43D5F8CF2A52ABE400014D99 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		43D5F8D22A52ADFE00014D99 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
+		43D5F8D52A52AEC200014D99 /* TextInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextInputView.swift; sourceTree = "<group>"; };
+		43D5F8D82A52B1CB00014D99 /* DateInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateInputView.swift; sourceTree = "<group>"; };
+		43D5F8DC2A52B26700014D99 /* DateStringHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateStringHelper.swift; sourceTree = "<group>"; };
 		54DAA0ED7DA3F2EB710DCF07 /* Pods_tw_testTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tw_testTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561908F3873810C215C7BB4C /* Pods-tw-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tw-testTests.release.xcconfig"; path = "Target Support Files/Pods-tw-testTests/Pods-tw-testTests.release.xcconfig"; sourceTree = "<group>"; };
 		840F65D447D6EA47D8253219 /* Pods-tw-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tw-testTests.debug.xcconfig"; path = "Target Support Files/Pods-tw-testTests/Pods-tw-testTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -192,6 +204,7 @@
 		43D5F8A22A529F9C00014D99 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				43D5F8DB2A52B25D00014D99 /* helpers */,
 				43D5F8C62A52A5C100014D99 /* utils */,
 				43D5F8AF2A52A10900014D99 /* design */,
 			);
@@ -260,8 +273,19 @@
 			isa = PBXGroup;
 			children = (
 				43D5F8CF2A52ABE400014D99 /* AvatarView.swift */,
+				43D5F8D22A52ADFE00014D99 /* SectionTitleView.swift */,
+				43D5F8D82A52B1CB00014D99 /* DateInputView.swift */,
+				43D5F8D52A52AEC200014D99 /* TextInputView.swift */,
 			);
 			path = views;
+			sourceTree = "<group>";
+		};
+		43D5F8DB2A52B25D00014D99 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				43D5F8DC2A52B26700014D99 /* DateStringHelper.swift */,
+			);
+			path = helpers;
 			sourceTree = "<group>";
 		};
 		8E4CDB4431BDEA4D09437FBD /* Frameworks */ = {
@@ -449,13 +473,17 @@
 				43D5F8B42A52A12F00014D99 /* ContactListViewModel.swift in Sources */,
 				43D5F8C42A52A59600014D99 /* ContactListDataSource.swift in Sources */,
 				43D5F8AD2A52A08E00014D99 /* Contact.swift in Sources */,
+				43D5F8DD2A52B26700014D99 /* DateStringHelper.swift in Sources */,
 				43D5F8D02A52ABE400014D99 /* AvatarView.swift in Sources */,
 				43D5F8B12A52A11500014D99 /* Colors.swift in Sources */,
 				43D5F8BA2A52A17200014D99 /* ContactDetailViewController.swift in Sources */,
 				43D5F8742A529E4B00014D99 /* ContactListViewController.swift in Sources */,
 				43D5F8B72A52A13900014D99 /* ContactDetailViewModel.swift in Sources */,
+				43D5F8D92A52B1CB00014D99 /* DateInputView.swift in Sources */,
+				43D5F8D62A52AEC200014D99 /* TextInputView.swift in Sources */,
 				43D5F8702A529E4B00014D99 /* AppDelegate.swift in Sources */,
 				43D5F8CC2A52A60000014D99 /* ContactListItemCell.swift in Sources */,
+				43D5F8D32A52ADFE00014D99 /* SectionTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -463,13 +491,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D5F8DA2A52B1CB00014D99 /* DateInputView.swift in Sources */,
 				43D5F8C52A52A59600014D99 /* ContactListDataSource.swift in Sources */,
 				43D5F8D12A52ABE400014D99 /* AvatarView.swift in Sources */,
+				43D5F8D72A52AEC200014D99 /* TextInputView.swift in Sources */,
 				43D5F8AE2A52A08E00014D99 /* Contact.swift in Sources */,
 				43D5F8B52A52A12F00014D99 /* ContactListViewModel.swift in Sources */,
+				43D5F8DE2A52B26700014D99 /* DateStringHelper.swift in Sources */,
 				43D5F8C02A52A21400014D99 /* ContactListViewModelTests.swift in Sources */,
 				43D5F8B22A52A11500014D99 /* Colors.swift in Sources */,
 				43D5F8B82A52A13900014D99 /* ContactDetailViewModel.swift in Sources */,
+				43D5F8D42A52ADFE00014D99 /* SectionTitleView.swift in Sources */,
 				43D5F8CD2A52A60000014D99 /* ContactListItemCell.swift in Sources */,
 				43D5F8BB2A52A17200014D99 /* ContactDetailViewController.swift in Sources */,
 				43D5F8C22A52A22000014D99 /* ContactDetailViewModelTests.swift in Sources */,

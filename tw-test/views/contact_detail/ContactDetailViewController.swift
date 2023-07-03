@@ -40,7 +40,35 @@ class ContactDetailViewController: UIViewController {
         return stackView
     }()
     
+    var container: UIView!
+    var bottomConstraint: NSLayoutConstraint!
+    
     private let avatarView = AvatarView()
+    private let mainSectionTitleView = SectionTitleView()
+    private let subSectionTitleView = SectionTitleView()
+    
+    lazy private var firstNameTextField: TextInputView = {
+        let view = TextInputView()
+        view.tag = 555
+        return view
+    }()
+    
+    lazy private var lastNameTextField: TextInputView = {
+        let view = TextInputView()
+        view.tag = 556
+        return view
+    }()
+    
+    lazy private var emailTextField: TextInputView = {
+        let view = TextInputView()
+        view.tag = 557
+        return view
+    }()
+    
+    lazy private var dateTextField: DateInputView = {
+        let view = DateInputView()
+        return view
+    }()
     
     var contact: Contact?
     
@@ -60,25 +88,59 @@ class ContactDetailViewController: UIViewController {
     }
     
     private func commonInit() {
+        viewModel = ContactDetailViewModel(data: contact)
+        
         setUI()
         setConstraints()
         setBehavior()
-        
-        viewModel = ContactDetailViewModel(data: contact)
     }
     
     private func setUI() {
         navigationItem.setLeftBarButton(cancelBarButton, animated: true)
         navigationItem.setRightBarButton(doneBarButton, animated: true)
         
+        container = UIView()
+        bottomConstraint = container.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        
         scrollView.addSubview(stackView)
-        view.addSubview(scrollView)
+        container.addSubview(scrollView)
+        view.addSubview(container)
         
         stackView.addArrangedSubview(avatarView)
+        stackView.addArrangedSubview(mainSectionTitleView)
+        stackView.addArrangedSubview(firstNameTextField)
+        stackView.addArrangedSubview(lastNameTextField)
+        stackView.addArrangedSubview(subSectionTitleView)
+        stackView.addArrangedSubview(emailTextField)
+        stackView.addArrangedSubview(dateTextField)
+        
+        firstNameTextField.onNextTriggered = { [weak self] curTag in
+            self?.triggerNextField(view: self!.firstNameTextField, currentTag: curTag)
+        }
+        lastNameTextField.onNextTriggered = { [weak self] curTag in
+            self?.triggerNextField(view: self!.lastNameTextField, currentTag: curTag)
+        }
+        emailTextField.onNextTriggered = { [weak self] curTag in
+            self?.triggerNextField(view: self!.emailTextField, currentTag: curTag)
+        }
         
         view.backgroundColor = UIColor.white
+        
+        mainSectionTitleView.populate(title: "Main Information")
+        subSectionTitleView.populate(title: "Sub Information")
+        
+        firstNameTextField.populate("First Name", value: viewModel.data?.firstName)
+        lastNameTextField.populate("Last Name", value: viewModel.data?.lastName)
+        
+        emailTextField.populate("Email", value: viewModel.data?.email)
+        dateTextField.populate("DOB", value: viewModel.data?.dob?.date(with: .date))
     }
     private func setConstraints() {
+        NSLayoutConstraint.activate([bottomConstraint])
+        
+        container.snp.makeConstraints { make in
+            make.top.left.right.equalToSuperview()
+        }
         scrollView.snp.makeConstraints { make in
             make.top.left.right.bottom.equalToSuperview()
         }
@@ -92,6 +154,30 @@ class ContactDetailViewController: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillShow),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(keyboardWillHide),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+           if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue {
+
+           if bottomConstraint.constant == 0 {
+              bottomConstraint.constant = -keyboardSize.height
+              view.layoutIfNeeded()
+           }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+           bottomConstraint.constant = 0
+           view.layoutIfNeeded()
     }
     
     @objc
@@ -106,12 +192,36 @@ class ContactDetailViewController: UIViewController {
     
     @objc
     private func doneTapped(sender: UIBarButtonItem) {
-//        guard let newContact = viewModel.saveContact() else {
-//            print("Problem saving contact")
-//            return
-//        }
-//
-//        delegate?.contactSaved(newContact)
-//        navigationController?.popViewController(animated: true)
+        let firstName = firstNameTextField.value
+        let lastName = lastNameTextField.value
+        let email = emailTextField.value
+        let dob = dateTextField.value?.string(with: .date)
+        
+        guard firstName != nil && firstName != "" && lastName != nil && lastName != "" else {
+            let dialogMessage = UIAlertController(title: "Incomplete Information", message: "First name and last name must be filled", preferredStyle: .alert)
+            let ok = UIAlertAction(title: "OK", style: .destructive, handler: { (action) -> Void in
+                print("Ok button tapped")
+            })
+            
+            dialogMessage.addAction(ok)
+            self.present(dialogMessage, animated: true, completion: nil)
+            return
+        }
+        
+        guard let newContact = viewModel.saveContact(firstName: firstName, lastName: lastName, email: email, dob: dob) else {
+            print("Problem saving contact")
+            return
+        }
+
+        delegate?.contactSaved(newContact)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    private func triggerNextField(view: TextInputView, currentTag: Int) {
+        if let nextField = view.superview?.viewWithTag(currentTag + 1) as? TextInputView {
+            nextField.setActive()
+        } else {
+            view.setInactive()
+        }
     }
 }

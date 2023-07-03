@@ -8,6 +8,7 @@
 import Foundation
 
 class ContactListViewModel {
+    let dataSource = Box(ContactListCollectionDataSource(data: [], selectionHandler: nil))
     
     var data: [Contact] = []
     var filteredData: [Contact] = []
@@ -23,10 +24,16 @@ class ContactListViewModel {
     
     private func commonInit() {
         fetchLocalJsonFile()
+        updateDataSource()
     }
     
     func refreshData() {
         fetchLocalJsonFile()
+        updateDataSource()
+    }
+    
+    func updateDataSource() {
+        dataSource.value = ContactListCollectionDataSource(data: filteredData, searchKeyword: keyword, selectionHandler: selectContact(_:))
     }
     
     func fetchLocalJsonFile() {
@@ -56,11 +63,23 @@ class ContactListViewModel {
         let filtered = data.filter({ $0.firstName!.lowercased().contains(keyword.lowercased()) || $0.lastName!.lowercased().contains(keyword.lowercased()) })
         
         self.filteredData = filtered
+        self.updateDataSource()
+    }
+    
+    func saveContact(_ contact: Contact) {
+        if let _ = self.data.firstIndex(where: { $0.id == contact.id }) {
+            // update contact
+            updateContact(contact)
+        } else {
+            // save contact
+            addContact(contact)
+        }
     }
     
     func addContact(_ contact: Contact) {
         self.data.append(contact)
         self.filteredData = data
+        self.updateDataSource()
     }
     
     func updateContact(_ contact: Contact) {
@@ -68,6 +87,7 @@ class ContactListViewModel {
         
         self.data[index] = contact
         self.filteredData = data
+        self.updateDataSource()
     }
     
     func selectContact(_ contact: Contact) {

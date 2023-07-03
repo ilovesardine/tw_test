@@ -14,7 +14,7 @@ final class ContactDetailViewModelTests: XCTestCase {
     
     override func setUpWithError() throws {
         try super.setUpWithError()
-        sut = ContactDetailViewModel()
+        sut = ContactDetailViewModel(data: Contact(id: "12", firstName: "Marylin", lastName: "Manson", email: "marylin@manson.com", dob: "2/3/1963"))
     }
     
     override func tearDownWithError() throws {
@@ -24,5 +24,8 @@ final class ContactDetailViewModelTests: XCTestCase {
     
     // MARK: method tests
     
-    func testSaveContact() {}
+    func testSaveContact() {
+        let newContact = sut.saveContact()
+        XCTAssertEqual(newContact?.id, "12")
+    }
 }

@@ -14,4 +14,14 @@ class ContactDetailViewModel {
     init(data: Contact? = nil) {
         self.data = data
     }
+    
+    func saveContact(firstName: String?, lastName: String?, email: String?, dob: String?) -> Contact? {
+        var newValue = data ?? Contact()
+        
+        if firstName == "" {
+            return nil
+        }
+        
+        return newValue
+    }
 }

@@ -27,6 +27,14 @@
 		43D5F8BB2A52A17200014D99 /* ContactDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8B92A52A17200014D99 /* ContactDetailViewController.swift */; };
 		43D5F8C02A52A21400014D99 /* ContactListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8BF2A52A21400014D99 /* ContactListViewModelTests.swift */; };
 		43D5F8C22A52A22000014D99 /* ContactDetailViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8C12A52A22000014D99 /* ContactDetailViewModelTests.swift */; };
+		43D5F8C42A52A59600014D99 /* ContactListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8C32A52A59600014D99 /* ContactListDataSource.swift */; };
+		43D5F8C52A52A59600014D99 /* ContactListDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8C32A52A59600014D99 /* ContactListDataSource.swift */; };
+		43D5F8C82A52A5C800014D99 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8C72A52A5C800014D99 /* Box.swift */; };
+		43D5F8C92A52A5C800014D99 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8C72A52A5C800014D99 /* Box.swift */; };
+		43D5F8CC2A52A60000014D99 /* ContactListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */; };
+		43D5F8CD2A52A60000014D99 /* ContactListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */; };
+		43D5F8D02A52ABE400014D99 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CF2A52ABE400014D99 /* AvatarView.swift */; };
+		43D5F8D12A52ABE400014D99 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 43D5F8CF2A52ABE400014D99 /* AvatarView.swift */; };
 		6C3A93EDE869E11AC221E811 /* Pods_tw_test.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F27D49FCF512B06B48CB760 /* Pods_tw_test.framework */; };
 		CF910ED2A23417F42E732E44 /* Pods_tw_testTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 54DAA0ED7DA3F2EB710DCF07 /* Pods_tw_testTests.framework */; };
 /* End PBXBuildFile section */
@@ -59,6 +67,10 @@
 		43D5F8B92A52A17200014D99 /* ContactDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewController.swift; sourceTree = "<group>"; };
 		43D5F8BF2A52A21400014D99 /* ContactListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListViewModelTests.swift; sourceTree = "<group>"; };
 		43D5F8C12A52A22000014D99 /* ContactDetailViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactDetailViewModelTests.swift; sourceTree = "<group>"; };
+		43D5F8C32A52A59600014D99 /* ContactListDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListDataSource.swift; sourceTree = "<group>"; };
+		43D5F8C72A52A5C800014D99 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactListItemCell.swift; sourceTree = "<group>"; };
+		43D5F8CF2A52ABE400014D99 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
 		54DAA0ED7DA3F2EB710DCF07 /* Pods_tw_testTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tw_testTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		561908F3873810C215C7BB4C /* Pods-tw-testTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tw-testTests.release.xcconfig"; path = "Target Support Files/Pods-tw-testTests/Pods-tw-testTests.release.xcconfig"; sourceTree = "<group>"; };
 		840F65D447D6EA47D8253219 /* Pods-tw-testTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tw-testTests.debug.xcconfig"; path = "Target Support Files/Pods-tw-testTests/Pods-tw-testTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -180,6 +192,7 @@
 		43D5F8A22A529F9C00014D99 /* core */ = {
 			isa = PBXGroup;
 			children = (
+				43D5F8C62A52A5C100014D99 /* utils */,
 				43D5F8AF2A52A10900014D99 /* design */,
 			);
 			path = core;
@@ -188,6 +201,7 @@
 		43D5F8A32A529FA300014D99 /* datasources */ = {
 			isa = PBXGroup;
 			children = (
+				43D5F8C32A52A59600014D99 /* ContactListDataSource.swift */,
 			);
 			path = datasources;
 			sourceTree = "<group>";
@@ -195,6 +209,7 @@
 		43D5F8A42A52A00A00014D99 /* contact_list */ = {
 			isa = PBXGroup;
 			children = (
+				43D5F8CA2A52A5F300014D99 /* cells */,
 				43D5F8732A529E4B00014D99 /* ContactListViewController.swift */,
 			);
 			path = contact_list;
@@ -203,6 +218,7 @@
 		43D5F8A52A52A01100014D99 /* contact_detail */ = {
 			isa = PBXGroup;
 			children = (
+				43D5F8CE2A52ABCF00014D99 /* views */,
 				43D5F8B92A52A17200014D99 /* ContactDetailViewController.swift */,
 			);
 			path = contact_detail;
@@ -222,6 +238,30 @@
 				43D5F8B02A52A11500014D99 /* Colors.swift */,
 			);
 			path = design;
+			sourceTree = "<group>";
+		};
+		43D5F8C62A52A5C100014D99 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				43D5F8C72A52A5C800014D99 /* Box.swift */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		43D5F8CA2A52A5F300014D99 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				43D5F8CB2A52A60000014D99 /* ContactListItemCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		43D5F8CE2A52ABCF00014D99 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				43D5F8CF2A52ABE400014D99 /* AvatarView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		8E4CDB4431BDEA4D09437FBD /* Frameworks */ = {
@@ -405,13 +445,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D5F8C82A52A5C800014D99 /* Box.swift in Sources */,
 				43D5F8B42A52A12F00014D99 /* ContactListViewModel.swift in Sources */,
+				43D5F8C42A52A59600014D99 /* ContactListDataSource.swift in Sources */,
 				43D5F8AD2A52A08E00014D99 /* Contact.swift in Sources */,
+				43D5F8D02A52ABE400014D99 /* AvatarView.swift in Sources */,
 				43D5F8B12A52A11500014D99 /* Colors.swift in Sources */,
 				43D5F8BA2A52A17200014D99 /* ContactDetailViewController.swift in Sources */,
 				43D5F8742A529E4B00014D99 /* ContactListViewController.swift in Sources */,
 				43D5F8B72A52A13900014D99 /* ContactDetailViewModel.swift in Sources */,
 				43D5F8702A529E4B00014D99 /* AppDelegate.swift in Sources */,
+				43D5F8CC2A52A60000014D99 /* ContactListItemCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -419,14 +463,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43D5F8C52A52A59600014D99 /* ContactListDataSource.swift in Sources */,
+				43D5F8D12A52ABE400014D99 /* AvatarView.swift in Sources */,
 				43D5F8AE2A52A08E00014D99 /* Contact.swift in Sources */,
 				43D5F8B52A52A12F00014D99 /* ContactListViewModel.swift in Sources */,
 				43D5F8C02A52A21400014D99 /* ContactListViewModelTests.swift in Sources */,
 				43D5F8B22A52A11500014D99 /* Colors.swift in Sources */,
 				43D5F8B82A52A13900014D99 /* ContactDetailViewModel.swift in Sources */,
+				43D5F8CD2A52A60000014D99 /* ContactListItemCell.swift in Sources */,
 				43D5F8BB2A52A17200014D99 /* ContactDetailViewController.swift in Sources */,
 				43D5F8C22A52A22000014D99 /* ContactDetailViewModelTests.swift in Sources */,
 				43D5F8AB2A52A06500014D99 /* ModelTests.swift in Sources */,
+				43D5F8C92A52A5C800014D99 /* Box.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

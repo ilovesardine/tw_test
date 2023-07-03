@@ -126,14 +126,14 @@
 		43D5F86E2A529E4B00014D99 /* tw-test */ = {
 			isa = PBXGroup;
 			children = (
-				43D5F8A62A52A01F00014D99 /* resources */,
 				43D5F87D2A529E5000014D99 /* Info.plist */,
 				43D5F86F2A529E4B00014D99 /* AppDelegate.swift */,
 				43D5F8782A529E5000014D99 /* Assets.xcassets */,
-				43D5F8A22A529F9C00014D99 /* core */,
-				43D5F8A32A529FA300014D99 /* datasources */,
 				43D5F87A2A529E5000014D99 /* LaunchScreen.storyboard */,
 				43D5F8752A529E4B00014D99 /* Main.storyboard */,
+				43D5F8A62A52A01F00014D99 /* resources */,
+				43D5F8A22A529F9C00014D99 /* core */,
+				43D5F8A32A529FA300014D99 /* datasources */,
 				43D5F89F2A529F8600014D99 /* models */,
 				43D5F8A02A529F8C00014D99 /* viewmodels */,
 				43D5F8A12A529F9100014D99 /* views */,

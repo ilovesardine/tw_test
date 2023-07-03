@@ -24,11 +24,36 @@ final class ContactListViewModelTests: XCTestCase {
     
     // MARK: method tests
     
-    func testFetchLocalJsonFile() {}
+    func testFetchLocalJsonFile() {
+        sut.fetchLocalJsonFile()
+        
+        XCTAssertFalse(sut.data.isEmpty)
+    }
     
-    func testSearchContacts() {}
+    func testSearchContacts() {
+        let keyword = "Monroe"
+        
+        sut.searchContacts(keyword: keyword)
+        
+        XCTAssertEqual(sut.filteredData.count, 1)
+    }
     
-    func testAddContact() {}
+    func testAddContact() {
+        let curCount = sut.data.count
+        
+        let contact = Contact(id: "12", firstName: "Marylin", lastName: "Manson", email: "marylin@manson.com", dob: "2/3/1963")
+        
+        sut.addContact(contact)
+        
+        XCTAssertEqual(sut.data.count, curCount + 1)
+    }
     
-    func testUpdateContact() {}
+    func testUpdateContact() {
+        var randomContact = sut.data[5]
+        
+        randomContact.lastName = "Evelyn"
+        sut.updateContact(randomContact)
+        
+        XCTAssertEqual(sut.data[5].lastName, "Evelyn")
+    }
 }

@@ -18,4 +18,11 @@ class ContactListViewModel {
         data = []
         filteredData = []
     }
+    
+    func fetchLocalJsonFile() {}
+    func searchContacts(keyword: String) {}
+    func addContact(_ contact: Contact) {}
+    func updateContact(_ contact: Contact) {}
+    
+    func selectContact(_ contact: Contact) {}
 }
